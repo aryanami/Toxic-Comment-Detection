@@ -1,0 +1,12 @@
+# Use the AWS Lambda Python base image
+FROM public.ecr.aws/lambda/python:3.9
+
+RUN yum install -y gcc-c++ make && yum clean all
+
+COPY requirements.txt ./
+
+RUN pip install --no-cache-dir -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
+
+COPY lambda_function.py ./
+
+CMD ["lambda_function.lambda_handler"]

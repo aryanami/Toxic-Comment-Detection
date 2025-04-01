@@ -1,0 +1,23 @@
+FROM apache/airflow:2.5.0-python3.8
+
+USER root
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        python3-dev \
+        default-libmysqlclient-dev \
+        build-essential \
+        curl \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH="/root/.cargo/bin:${PATH}"
+
+USER airflow
+
+RUN pip install --user --no-cache-dir \
+    pandas==1.5.3 \
+    boto3==1.26.97 \
+    transformers==4.28.1 \
+    torch==1.13.1+cpu -f https://download.pytorch.org/whl/torch_stable.html \
+    scikit-learn==1.2.2 \
+    psycopg2-binary==2.9.5 \
+    --no-build-isolation

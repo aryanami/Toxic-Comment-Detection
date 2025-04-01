@@ -1,0 +1,4 @@
+transformers==4.28.1
+torch==2.0.0 -f https://download.pytorch.org/whl/cpu/torch_stable.html
+boto3==1.26.97
+sentencepiece==0.1.97
