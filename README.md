@@ -15,11 +15,11 @@ This project aims to automatically detect toxic content in online comments using
 - **Machine Learning**: DistilBERT (distilled version of BERT)
 - **Backend**: Flask API with Python 
 - **Data Processing**: Pandas, Numpy
-- **Model Serving**: Docker, AWS ECR/ECS
+- **Model Serving**: Docker, AWS ECR
 
 ### Infrastructure
 - **Orchestration**: Apache Airflow
-- **Cloud Services**: AWS (EC2, S3, Lambda, API Gateway)
+- **Cloud Services**: AWS (EC2, S3, Lambda, API Gateway, ECR)
 - **Containerization**: Docker
 - **Version Control**: Git, GitHub
 
@@ -37,8 +37,8 @@ This project aims to automatically detect toxic content in online comments using
 
 ### Deployment Architecture
 1. Docker container with Flask API endpoint
-2. Hosted on AWS ECS with API Gateway frontend
-3. Auto-scaling configured for high traffic loads
+2. Container image stored in AWS ECR repository
+3. Deployed on EC2 instance with API Gateway frontend
 
 ## Conclusion
 This project demonstrates a complete ML pipeline from data processing to production deployment. The DistilBERT model provides near state-of-the-art accuracy while being more efficient than full BERT. The AWS infrastructure ensures scalability and reliability for real-world usage.
