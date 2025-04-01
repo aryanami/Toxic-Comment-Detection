@@ -32,7 +32,7 @@ This project aims to automatically detect toxic content in online comments using
 
 ### Model Development
 1. Fine-tuned DistilBERT on toxic comment dataset
-2. Achieved ~95% accuracy on validation set
+2. Achieved ~96% accuracy on validation set
 3. Optimized model for production deployment
 
 ### Deployment Architecture
